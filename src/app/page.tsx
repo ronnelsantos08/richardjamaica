@@ -4,6 +4,7 @@ import EnvelopeInvite from "@/components/EnvelopeInvite";
 import Sidebar from "@/components/Sidebar";
 import GlobalStyles from "@/components/GlobalStyles";
 import FlipBook from "@/components/FlipBook"; 
+import ImageGallery from "@/components/ImageGallery";
 
 const pagesData = [
   // Cover Front
@@ -66,7 +67,7 @@ const pagesData = [
         </div>
         <div className="md:w-1/2">
           <img 
-            src="/images/story2.jpg" 
+            src="/images/countdown.jpeg" 
             alt="Proposal scene" 
             className="w-full h-full object-cover rounded-lg shadow-lg"
           />
@@ -86,7 +87,7 @@ const pagesData = [
         </div>
         <div className="md:w-1/2">
           <img 
-            src="/images/story3.jpg" 
+            src="/images/prenup8.jpeg" 
             alt="Engagement" 
             className="w-full h-full object-cover rounded-lg shadow-lg"
           />
@@ -102,7 +103,7 @@ const pagesData = [
         </div>
         <div className="md:w-1/2">
           <img 
-            src="/images/story4.jpg" 
+            src="/images/prenup2.jpeg" 
             alt="Celebration" 
             className="w-full h-full object-cover rounded-lg shadow-lg"
           />
@@ -116,7 +117,7 @@ const pagesData = [
     front: (
       <div className="flex flex-col items-center justify-center h-full">
         <img 
-          src="/images/cover-back.jpg" 
+          src="/images/prenup14.jpeg" 
           alt="Back Cover" 
           className="w-full h-96 object-cover rounded-lg shadow-lg"
         />
@@ -146,6 +147,20 @@ const Page: React.FC = () => {
                 <section className="mt-0" id="ourstory">
                     <FlipBook pages={pagesData} />
                 </section>
+
+                  {/* Image Gallery Section */}
+                  <section
+                  className="mt-0 relative w-full min-h-screen flex flex-col items-center justify-center"
+                  id="gallery"
+                  style={{
+                    backgroundImage: "url('/images/bgprenup.png')",
+                    backgroundSize: "cover",
+                    backgroundPosition: "center",
+                    backgroundRepeat: "no-repeat",
+                  }}
+                >
+                    <ImageGallery />
+              </section>
             </main>
         </div>
     );
