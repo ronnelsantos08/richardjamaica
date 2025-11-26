@@ -1,0 +1,166 @@
+/* ------------------------------------------ */
+/* ENVELOPE SECTION                           */
+/* ------------------------------------------ */
+
+.envelope-wrapper {
+    width: 100%;
+    padding: 40px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.textclick {
+    margin-top: 18px;
+    font-size: 1.2rem;
+    font-family: 'Tangerine', cursive;
+    color: #5B88A5;
+    opacity: 0.85;
+    text-align: center;
+}
+
+/* ------------------------------------------ */
+/* ENVELOPE CONTAINER                         */
+/* ------------------------------------------ */
+
+.envelope {
+    width: 330px;
+    height: 250px;
+    position: relative;
+    cursor: pointer;
+    perspective: 1800px;
+    transition: transform 1s ease-in-out;
+}
+
+.envelope.open {
+    transform: translateY(25px);
+}
+
+/* ------------------------------------------ */
+/* CARD STYLING                               */
+/* ------------------------------------------ */
+
+.card {
+    position: absolute;
+    width: 90%;
+    height: 90%;
+    background: white;
+    top: 5%;
+    left: 5%;
+    border-radius: 12px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0px 10px 25px rgba(0,0,0,0.15);
+    transform-origin: bottom center;
+    transition: transform 1s ease-in-out 0.5s;
+}
+
+.envelope.open .card {
+    transform: translateY(-240px);
+}
+
+/* ------------------------------------------ */
+/* CARD TYPOGRAPHY                            */
+/* ------------------------------------------ */
+
+.title-script {
+    font-family: 'Imperial Script', cursive;
+    font-size: 2.6rem;
+    color: #5B88A5;
+}
+
+.names-script {
+    margin-top: 10px;
+    font-family: 'Imperial Script', cursive;
+    font-size: 3.2rem;
+    color: #C8A2C8;
+}
+
+.invite-body {
+    font-family: 'Tangerine', cursive;
+    font-size: 1.8rem;
+    color: #777;
+}
+
+.invite-details {
+    margin-top: 20px;
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+    color: #444;
+    line-height: 1.5rem;
+}
+
+/* ------------------------------------------ */
+/* FLAPS                                      */
+/* ------------------------------------------ */
+
+.flap-container {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+}
+
+.flap {
+    width: 100%;
+    height: 100%;
+    background: #C8A2C8;
+    clip-path: polygon(0 0, 100% 0, 50% 55%);
+    transform-origin: top center;
+    transition: transform 1s ease-in-out;
+}
+
+/* inside flap */
+.flap-inside .flap {
+    background: #E8D7F0;
+}
+
+.envelope.open .flap-outside .flap {
+    transform: rotateX(-180deg);
+}
+
+.envelope.open .flap-inside .flap {
+    transform: rotateX(-180deg);
+}
+
+/* pattern inside flap */
+.lining {
+    width: 100%;
+    height: 100%;
+    background: repeating-linear-gradient(
+        45deg,
+        rgba(255,255,255,0.7),
+        rgba(255,255,255,0.7) 10px,
+        rgba(200,162,200,0.3) 10px,
+        rgba(200,162,200,0.3) 20px
+    );
+}
+
+/* ------------------------------------------ */
+/* SVG STRING                                 */
+/* ------------------------------------------ */
+
+.string {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 330px;
+    height: 250px;
+    pointer-events: none;
+}
+
+.string-path {
+    fill: none;
+    stroke: #5B88A5;
+    stroke-width: 3;
+    stroke-linecap: round;
+    stroke-dasharray: 500;
+    stroke-dashoffset: 500;
+    animation: string-appear 2s ease forwards;
+}
+
+@keyframes string-appear {
+    to {
+        stroke-dashoffset: 0;
+    }
+}
