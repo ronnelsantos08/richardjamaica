@@ -195,14 +195,28 @@ const WeddingDetails = () => {
 
         {/* Program Flow */}
         <section className="mt-12">
-          <h2 className="font-serif text-4xl text-center font-bold text-lilac mb-12 flex items-center justify-center gap-3">
-            <Clock className="w-8 h-8 text-pinkAccent"/> Program Flow <Heart className="w-8 h-8 text-pinkAccent"/>
-          </h2>
-          <div className="relative timeline-container">
-            <div className="hidden md:block absolute left-1/2 transform -translate-x-1/2 w-1 bg-dustyBlue/50 top-0 bottom-0"></div>
-            {PROGRAM_FLOW.map((e, i) => <TimelineEvent key={i} index={i} time={e.time} description={e.description}/>)}
-          </div>
-        </section>
+  <h2 className="font-serif text-4xl text-center font-bold text-lilac mb-12 flex items-center justify-center gap-3">
+    <Clock className="w-8 h-8 text-pinkAccent" /> Program Flow{" "}
+    <Heart className="w-8 h-8 text-pinkAccent" />
+  </h2>
+
+  <div className="relative timeline-container">
+    <div className="hidden md:block absolute left-1/2 transform -translate-x-1/2 w-1 bg-dustyBlue/50 top-0 bottom-0"></div>
+    {PROGRAM_FLOW.map((e, i) => (
+      <TimelineEvent key={i} index={i} time={e.time} description={e.description} />
+    ))}
+  </div>
+
+  {/* View Entourage Button */}
+  <div className="flex justify-center mt-12">
+    <a
+      href="/entourage"
+      className="px-8 py-3 rounded-full bg-pink-400 text-white font-serif text-lg shadow-md hover:bg-pink-500 hover:shadow-xl transition-all duration-300"
+    >
+      View Entourage →
+    </a>
+  </div>
+</section>
       </div>
     </div>
   );

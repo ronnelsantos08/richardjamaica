@@ -6,6 +6,7 @@ import GlobalStyles from "@/components/GlobalStyles";
 import FlipBook from "@/components/FlipBook"; 
 import ImageGallery from "@/components/ImageGallery";
 import WeddingDetails from "@/components/WeddingDetails";
+import RsvpForm from "@/components/Rsvpform";
 
 const pagesData = [
   // Cover Front
@@ -166,6 +167,9 @@ const Page: React.FC = () => {
         <section className="mt-16 w-full flex justify-center px-4" id="location">
           <WeddingDetails />
         </section>
+        <section id="rsvp">
+  <RsvpForm />
+</section>
             </main>
         </div>
     );
