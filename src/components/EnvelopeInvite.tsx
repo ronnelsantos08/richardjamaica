@@ -37,7 +37,7 @@ const EnvelopeInvite: React.FC = () => {
             /* Background image with soft overlay */
             background: 
                 linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), /* Dark overlay for readability */
-                url('https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=1600&q=80') no-repeat center center;
+                url('/images/invitebg.jpeg') no-repeat center center;
             background-size: cover;
         }
 
@@ -253,7 +253,7 @@ const EnvelopeInvite: React.FC = () => {
               }
           }
         `}</style>
-  <div className="envelope-container">
+  <div className="envelope-container" id="invite">
         {/* Envelope HTML Structure (Converted to JSX) */}
         <div className={envelopeClass} onClick={handleEnvelopeClick}>
         <div className="card">
@@ -367,9 +367,7 @@ const EnvelopeInvite: React.FC = () => {
             </path>
           </svg>
         </div>
-        <p className="textclick">
-          {isOpen ? 'Please Join Us' : 'Click'}
-        </p>
+    
       </>
     );
   };

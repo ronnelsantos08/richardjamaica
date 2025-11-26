@@ -8,12 +8,6 @@ interface ImageProps {
     theme: string;
 }
 
-const carouselImages: ImageProps[] = [
-    { src: "https://placehold.co/1600x900/C8A2C8/FFFFFF?text=Lilac+Theme+Photo", alt: "Engagement photo 1", theme: "Lilac" },
-    { src: "https://placehold.co/1600x900/5B88A5/FFFFFF?text=Dusty+Blue+Theme+Photo", alt: "Engagement photo 2", theme: "Dusty Blue" },
-    { src: "https://placehold.co/1600x900/9ABF92/FFFFFF?text=Sage+Green+Theme+Photo", alt: "Engagement photo 3", theme: "Sage Green" },
-];
-
 interface Petal {
     x: number;
     y: number;
@@ -32,23 +26,44 @@ const PetalColors = [
 
 const HeroSection: React.FC = () => {
     const [currentIndex, setCurrentIndex] = useState(0);
+    const [isMobile, setIsMobile] = useState(false);
     const canvasRef = useRef<HTMLCanvasElement | null>(null);
     const intervalTime = 5000;
 
-    /* CAROUSEL LOGIC */
+    // Detect mobile
+    useEffect(() => {
+        const checkMobile = () => setIsMobile(window.innerWidth < 768);
+        checkMobile();
+        window.addEventListener("resize", checkMobile);
+        return () => window.removeEventListener("resize", checkMobile);
+    }, []);
+
+    const carouselImages: ImageProps[] = isMobile
+        ? [
+            { src: "/images/mobile1.jpeg", alt: "Mobile Engagement 1", theme: "Lilac" },
+            { src: "/images/mobile2.jpeg", alt: "Mobile Engagement 2", theme: "Dusty Blue" },
+            { src: "/images/mobile3.jpeg", alt: "Mobile Engagement 3", theme: "Sage Green" },
+            { src: "/images/mobile4.jpeg", alt: "Mobile Engagement 4", theme: "Dusty Green" },
+        ]
+        : [
+            { src: "/images/hero1.jpeg", alt: "Engagement photo 1", theme: "Lilac" },
+            { src: "/images/hero2.jpeg", alt: "Engagement photo 2", theme: "Dusty Blue" },
+            { src: "/images/hero3.jpeg", alt: "Engagement photo 3", theme: "Sage Green" },
+            { src: "/images/hero4.jpeg", alt: "Engagement photo 4", theme: "Dusty Green" },
+        ];
+
+    // Carousel
     useEffect(() => {
         const interval = setInterval(() => {
             setCurrentIndex((prev) => (prev + 1) % carouselImages.length);
         }, intervalTime);
-
         return () => clearInterval(interval);
-    }, []);
+    }, [carouselImages.length]);
 
-    /* PETALS CANVAS */
+    // Petals animation
     useEffect(() => {
         const canvas = canvasRef.current;
         if (!canvas) return;
-
         const ctx = canvas.getContext("2d");
         if (!ctx) return;
 
@@ -116,7 +131,6 @@ const HeroSection: React.FC = () => {
         };
 
         animate();
-
         return () => cancelAnimationFrame(animationFrameId);
     }, []);
 
@@ -132,30 +146,30 @@ const HeroSection: React.FC = () => {
     return (
         <section id="home" className="min-h-screen relative p-8 overflow-hidden">
 
-            {/* Decorations */}
+            {/* Top Decoration */}
             <div
-  className="absolute top-0 left-0 w-full h-60 z-30 opacity-70"
-  style={{
-    backgroundImage: "url('/images/heroborder.png')",
-    backgroundRepeat: "repeat-x",      // repeat horizontally
-    backgroundSize: "contain",     
-    transform: "scaleY(-1)",    // scale each flower proportionally
-    backgroundPosition: "top center",  // align to the top
-  }}
-></div>
+                className="absolute top-0 left-0 w-full sm:h-60 h-40 z-30 opacity-70"
+                style={{
+                    backgroundImage: "url('/images/heroborder.png')",
+                    backgroundRepeat: "repeat-x",
+                    backgroundSize: "contain",
+                    transform: "scaleY(-1)",
+                    backgroundPosition: "top center",
+                }}
+            ></div>
 
-<div
-  className="absolute bottom-0 right-0 w-full h-24 z-30 opacity-70"
-  style={{
-    backgroundImage:
-      "url('/images/heroborde2.png')",
-    backgroundRepeat: "repeat-x",
-    backgroundSize: "contain",
-    backgroundPosition: "bottom center",
-    transform: "scaleY(1)", // keep flowers facing upward
-    transformOrigin: "bottom",
-  }}
-></div>
+            {/* Bottom Decoration */}
+            <div
+                className="absolute bottom-0 right-0 w-full sm:h-80 h-50 z-30 opacity-70"
+                style={{
+                    backgroundImage: "url('/images/heroborder2.png')",
+                    backgroundRepeat: "repeat-x",
+                    backgroundSize: "contain",
+                    backgroundPosition: "bottom center",
+                    transform: "scaleY(1)",
+                    transformOrigin: "bottom",
+                }}
+            ></div>
 
             {/* Background Carousel */}
             <div className="absolute inset-0 z-0">
@@ -183,9 +197,9 @@ const HeroSection: React.FC = () => {
 
             {/* Content */}
             <div className="relative z-20 flex items-center justify-center min-h-screen">
-                <div className="text-center text-white p-6 rounded-lg max-w-2xl bg-white/10 backdrop-blur-sm shadow-2xl border-2 border-white/50">
+                <div className="text-center text-white p-6 rounded-lg max-w-2xl ">
 
-                    <p className="text-xl md:text-2xl font-accent-script italic mb-4">
+                    <p className="text-4xl md:text-5xl font-accent-script italic mb-4">
                         We joyfully invite you to the wedding of
                     </p>
 
@@ -199,12 +213,17 @@ const HeroSection: React.FC = () => {
                         January 18, 2026
                     </p>
 
-                    <a
-                        href="#invite"
-                        className="inline-block mt-8 px-8 py-3 btn-primary rounded-full shadow-lg hover:scale-105 transition"
-                    >
-                        View Invitation Details
-                    </a>
+                    {/* Default Audio Player */}
+                    <div className="mt-8">
+                        <audio
+                            src="/music/bgmusic.mp3"
+                            controls
+                            loop
+                            className="w-full sm:w-80 mx-auto rounded-lg shadow-lg"
+                        >
+                            Your browser does not support the audio element.
+                        </audio>
+                    </div>
                 </div>
             </div>
         </section>
