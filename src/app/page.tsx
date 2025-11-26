@@ -9,11 +9,27 @@ const pagesData = [
   // Cover Front
   {
     front: (
-      <div className="flex flex-col items-center justify-center h-full">
-        <h1 className="text-5xl font-bold mb-4">Richard & Jamaica</h1>
-        <p className="text-xl">Our Wedding Story</p>
+      <div
+        className="flex flex-col items-center justify-center h-full 
+                   cursor-pointer transition-transform duration-300 
+                   hover:scale-105 hover:shadow-lg"
+      >
+        <h1 className="text-5xl font-bold mb-4" style={{ fontFamily: 'var(--font-great-vibes)' }}>
+          Richard & Jamaica
+        </h1>
+        <p className="text-xl mb-8" style={{ fontFamily: 'var(--font-playfair)' }}>
+          Our Wedding Story
+        </p>
+        
+        {/* Click instruction button */}
+        <div className="px-6 py-2 rounded-full bg-pink-300 text-white shadow-md
+                        hover:bg-pink-400 transition-colors duration-300">
+          Click to Open
+        </div>
       </div>
     ),
+  
+  
     back: (
       <div className="flex flex-col items-center justify-center h-full">
         <h1 className="text-3xl font-semibold">Back Cover</h1>

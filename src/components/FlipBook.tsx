@@ -188,7 +188,9 @@ const FlipBook: React.FC<FlipBookProps> = ({ pages }) => {
     <>
       <style>{flipBookStyles}</style>
       <section
-  className={`w-full h-[700px] flex items-center overflow-hidden bg-[#E6E6FA] px-20 transition-all duration-700`}
+className={`w-full h-[700px] flex items-center overflow-hidden 
+bg-gradient-to-r from-[#C8A2C8] via-[#E6E6FA] to-[#FFC0CB] 
+px-20 transition-all duration-700`}
   style={{ justifyContent: hasFlipped ? 'flex-end' : 'center' }}
 >
         <div ref={bookRef} className="book transition-transform duration-700">
