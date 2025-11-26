@@ -37,7 +37,7 @@ const LOCATIONS = [
     type: 'Ceremony',
     time: '4:00 P.M',
     name: 'The Paradiso Terrestre',
-    address: 'San Jose, Antipolo, Rizal',
+    address: 'Molino - Paliparan Road, Bacoor City, Cavite',
     isRight: true,
     mapLink: 'https://maps.app.goo.gl/dku8R1T4NDK6xhmB8',
   },
