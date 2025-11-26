@@ -5,6 +5,7 @@ import Sidebar from "@/components/Sidebar";
 import GlobalStyles from "@/components/GlobalStyles";
 import FlipBook from "@/components/FlipBook"; 
 import ImageGallery from "@/components/ImageGallery";
+import WeddingDetails from "@/components/WeddingDetails";
 
 const pagesData = [
   // Cover Front
@@ -151,7 +152,7 @@ const Page: React.FC = () => {
                   {/* Image Gallery Section */}
                   <section
                   className="mt-0 relative w-full min-h-screen flex flex-col items-center justify-center"
-                  id="gallery"
+                  id="prenup"
                   style={{
                     backgroundImage: "url('/images/bgprenup.png')",
                     backgroundSize: "cover",
@@ -161,6 +162,10 @@ const Page: React.FC = () => {
                 >
                     <ImageGallery />
               </section>
+              {/* Wedding Details Section */}
+        <section className="mt-16 w-full flex justify-center px-4" id="location">
+          <WeddingDetails />
+        </section>
             </main>
         </div>
     );
