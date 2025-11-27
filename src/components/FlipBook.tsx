@@ -207,6 +207,20 @@ px-20 transition-all duration-700`}
           ))}
         </div>
       </section>
+      <div
+      className="w-full flex justify-center py-20 bg-cover bg-center"
+      style={{
+        backgroundImage: "url('/images/video.jpeg')",
+      }}
+    >
+      <iframe
+        src="https://drive.google.com/file/d/1ehmcdwGJmv07xa9dgRtQZfZtIuEhRWxK/preview"
+        width="960"
+        height="540"
+        allow="autoplay"
+        className="rounded-xl shadow-2xl backdrop-blur-sm bg-white/30 p-2"
+      ></iframe>
+    </div>
     </>
   );
 };

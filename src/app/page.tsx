@@ -7,6 +7,8 @@ import FlipBook from "@/components/FlipBook";
 import ImageGallery from "@/components/ImageGallery";
 import WeddingDetails from "@/components/WeddingDetails";
 import RsvpForm from "@/components/Rsvpform";
+import Gift from "@/components/Gift";
+import Footer from "@/components/Footer";
 
 const pagesData = [
   // Cover Front
@@ -170,6 +172,11 @@ const Page: React.FC = () => {
         <section id="rsvp">
   <RsvpForm />
 </section>
+<section className="mb-50">
+<Gift />
+</section>
+<Footer />
+
             </main>
         </div>
     );

@@ -63,11 +63,9 @@ const Entourage: React.FC = () => {
             {/* Brothers & Sister of Groom */}
             <div className={sectionCard} style={{ borderColor: colors.dustyBlue }}>
               <h3 className="text-xl font-bold mb-3" style={{ color: colors.lilac, fontFamily: "var(--font-playfair)" }}>
-                Groom's Siblings
+              Sister of the Groom
               </h3>
               <ul className="text-gray-700 space-y-1">
-                <li><strong>Rudy Pareja Espinosa</strong></li>
-                <li><strong>Roderick Pareja Espinosa ✝️</strong></li>
                 <li><strong>Reinalyn Espinosa Sakata</strong> (Sister)</li>
               </ul>
             </div>
