@@ -85,8 +85,8 @@ const Entourage: React.FC = () => {
             <div className={`${sectionCard} flex flex-col gap-4`} style={{ borderColor: colors.ashGray }}>
               <h3 className="text-lg font-semibold mb-2" style={{ color: colors.lilac }}>Sample Dress Ideas</h3>
               <div className="grid grid-cols-1 gap-3">
-                <img src="/images/dress-sample1.jpeg" alt="Sample dress 1" className="w-full h-48 object-cover rounded-lg shadow-md" />
-                <img src="/images/dress-sample2.jpeg" alt="Sample dress 2" className="w-full h-48 object-cover rounded-lg shadow-md" />
+                <img src="/images/dress1.jpg" alt="Sample dress 1" className="w-full h-48 object-cover rounded-lg shadow-md" />
+                <img src="/images/dress2.png" alt="Sample dress 2" className="w-full h-48 object-cover rounded-lg shadow-md" />
               </div>
 
               <p className="mt-2 text-sm text-gray-600 italic">
